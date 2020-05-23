@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtEsfera;
     TextView txtPiramideB;
     TextView txtPiramideA;
+    TextView txtErr;
 
     EditText edtEsferaRaio;
     EditText edtPiramideBase;
@@ -41,11 +42,14 @@ public class MainActivity extends AppCompatActivity {
         txtEsfera = findViewById(R.id.txtEsfera);
         txtPiramideB = findViewById(R.id.txtPiramideB);
         txtPiramideA = findViewById(R.id.txtPiramideA);
+        txtErr = findViewById(R.id.err);
 
         txtTitle.setText(R.string.title);
         txtEsfera.setText(R.string.esfera);
         txtPiramideB.setText(R.string.piramideB);
         txtPiramideA.setText(R.string.piramideA);
+        txtErr.setText(R.string.noerr);
+
 
         edtEsferaRaio = findViewById(R.id.edtEsfera);
         edtPiramideBase = findViewById(R.id.edtPiramideB);
@@ -54,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
 
     Intent intent;
     public void postResultado(View view){
+
+        if(String.valueOf(edtEsferaRaio.getText()).isEmpty() || String.valueOf(edtPiramideBase.getText()).isEmpty() || String.valueOf(edtPiramideAlt.getText()).isEmpty())
+        {
+            txtErr.setText(R.string.err);
+            return;
+        }
+        txtErr.setText(R.string.noerr);
+
         esferaR = Double.parseDouble(String.valueOf(edtEsferaRaio.getText()));
         piramideL = Double.parseDouble(String.valueOf(edtPiramideBase.getText()));
         piramideA = Double.parseDouble(String.valueOf(edtPiramideAlt.getText()));

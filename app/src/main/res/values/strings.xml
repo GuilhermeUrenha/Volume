@@ -8,4 +8,7 @@
 
     <string name="lblesf">Volume da Esfera</string>
     <string name="lblpir">Volume da Piramide</string>
+
+    <string name="noerr"> </string>
+    <string name="err">Falta de Valores</string>
 </resources>
