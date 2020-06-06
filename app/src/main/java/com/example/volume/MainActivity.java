@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        this.setContentView(R.layout.activity_main);
 
         txtTitle = findViewById(R.id.txtTitle);
         txtEsfera = findViewById(R.id.txtEsfera);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         edtPiramideAlt = findViewById(R.id.edtPiramideA);
     }
 
-    Intent intent;
+    Intent intentRes;
     public void postResultado(View view){
 
         if(String.valueOf(edtEsferaRaio.getText()).isEmpty() || String.valueOf(edtPiramideBase.getText()).isEmpty() || String.valueOf(edtPiramideAlt.getText()).isEmpty())
@@ -76,10 +76,16 @@ public class MainActivity extends AppCompatActivity {
         strEsfera = String.valueOf(VolumeEsfera);
         strPiramide = String.valueOf(VolumePiramide);
 
-        intent = new Intent(this, resultados.class);
+        intentRes = new Intent(this, resultados.class);
 
-        intent.putExtra(MESSAGE1, strEsfera);
-        intent.putExtra(MESSAGE2, strPiramide);
-        startActivity(intent);
+        intentRes.putExtra(MESSAGE1, strEsfera);
+        intentRes.putExtra(MESSAGE2, strPiramide);
+        this.startActivity(intentRes);
+    }
+
+    Intent intentCam;
+    public void telaCamera(View view){
+        intentCam = new Intent(this, camera.class);
+        this.startActivity(intentCam);
     }
 }
